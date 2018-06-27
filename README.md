@@ -1,6 +1,9 @@
 # Oxide Programming Language v0.5a
 A compiler for the oxide programming language.
 
+### Table of Contents
+1. [Introduction](#introduction)
+
 ### Data Types
 
 ##### Numbers
