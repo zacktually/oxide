@@ -4,6 +4,10 @@ A compiler for the oxide programming language.
 ### Table of Contents
 1. [Introduction](#introduction)
 2. [Data Types](#data-types)
+3. [Symbol Binding](#symbol-binding)
+4. [Indexing](#indexing)
+5. [Expressions](#expressions)
+6. [Control Statements](#control-statements)
 
 ### Data Types
 
@@ -43,12 +47,12 @@ false
 
 ### Symbol Binding
 
-### Mutable Variables
+##### Mutable Variables
 ```
 var x = 5
 ```
 
-### Immutable Values
+##### Immutable Values
 ```
 val y = 3
 ```
