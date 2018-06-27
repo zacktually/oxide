@@ -125,3 +125,29 @@ Evaluating expressions
 <if ==(x 3)>
 </if>
 ```
+
+##### Loops
+Event loops
+```
+<loop>
+</loop>
+```
+While loops
+```
+<while >=(x 0)>
+</while>
+```
+For Loops
+```
+<for item in items>
+</for>
+
+<for i in (1:10)>
+</for>
+```
+
+##### Functions
+```
+<func x:Int y:String>
+</func>
+```
