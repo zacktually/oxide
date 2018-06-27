@@ -10,6 +10,7 @@ A compiler for the oxide programming language.
 6. [Control Statements](#control-statements)
 
 
+
 ### Data Types
 
 ##### Numbers
@@ -45,6 +46,7 @@ false
 ```
 {}
 ```
+
 
 
 ### Symbol Binding
@@ -88,6 +90,7 @@ x[-1:1]   // "hello"
 ```
 
 
+
 ### Expressions
 ```
 + - * / ^ %
@@ -128,6 +131,7 @@ Evaluating expressions
 ```
 ~(1)   //
 ```
+
 
 
 ### Control Statements
