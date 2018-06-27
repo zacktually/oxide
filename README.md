@@ -9,7 +9,7 @@ A compiler for the oxide programming language.
 5. [Expressions](#expressions)
 6. [Control Statements](#control-statements)
 
-<br />
+
 ### Data Types
 
 ##### Numbers
@@ -46,7 +46,7 @@ false
 {}
 ```
 
-<br />
+
 ### Symbol Binding
 
 ##### Mutable Variables
@@ -58,6 +58,7 @@ var x = 5
 ```
 val y = 3
 ```
+
 
 ### Indexing
 ```
@@ -86,7 +87,6 @@ x[1]      // "o"
 x[-1]     // "h"
 x[-1:1]   // "hello"
 ```
-
 
 
 ### Expressions
@@ -129,7 +129,6 @@ Evaluating expressions
 ```
 ~(1)   //
 ```
-
 
 
 ### Control Statements
