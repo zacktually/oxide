@@ -9,8 +9,7 @@ A compiler for the oxide programming language.
 5. [Expressions](#expressions)
 6. [Control Statements](#control-statements)
 
-
-
+<br />
 ### Data Types
 
 ##### Numbers
@@ -47,8 +46,7 @@ false
 {}
 ```
 
-
-
+<br />
 ### Symbol Binding
 
 ##### Mutable Variables
