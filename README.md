@@ -3,6 +3,7 @@ A compiler for the oxide programming language.
 
 ### Table of Contents
 1. [Introduction](#introduction)
+2. [Data Types](#data-types)
 
 ### Data Types
 
