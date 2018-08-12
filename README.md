@@ -12,33 +12,33 @@ An interpreter and compiler for the oxide programming language.
 8. [Functions](#functions)
 
 ### Introduction
-Oxide is built with simplicity, power and efficiency in mind.  We've tried to create a language that incorporates the best functionality combined with a simple, less verbose syntax.
+Oxide is built with simplicity, power and efficiency in mind.
+We've tried to create a language that incorporates the best functionality combined with a simple, less verbose syntax.
 
 The Oxide interpreter and compiler is written in Rust.
 
 ##### Syntax
-- **Oxide does not use semicolons at the end of a line of code**
->
+**Oxide does not use semicolons at the end of a line of code**
 
 ### Data Types
 
 ##### Primitives
 Oxide has only 3 basic primitive types: Numbers, Booleans and Strings
 
-- Numbers: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
+Numbers: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
 ```
 5
 -72
 5.3
 ```
 
-- Booleans:
+Booleans:
 ```
 true
 false
 ```
 
-- Strings:
+Strings:
 ```
 ""          // The empty string
 "a"         // A string of length 1
@@ -46,17 +46,17 @@ false
 ```
 
 ##### Collections
-- Vectors
+Vectors
 ```
 [1 2 3 4 5]
 ```
 
-- Lists
+Lists
 ```
 (1 2 3)
 ```
 
-- Structures
+Structures
 ```
 {}
 ```
