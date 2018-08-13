@@ -3,13 +3,16 @@ An interpreter and compiler for the oxide programming language.
 
 ### Table of Contents
 1. [Introduction](#introduction)
-2. [Data Types](#data-types)
-3. [Symbol Binding](#symbol-binding)
-4. [Indexing](#indexing)
-5. [Expressions](#expressions)
-6. [Conditionals](#conditionals)
-7. [Loops](#loops)
-8. [Functions](#functions)
+2. [Syntax](#syntax)
+3. [Primitives](#primitives)
+4. [Collections](#collections)
+5. [Structures](#structures)
+6. [Symbol Binding](#symbol-binding)
+7. [Indexing](#indexing)
+8. [Expressions](#expressions)
+9. [Conditionals](#conditionals)
+10. [Loops](#loops)
+11. [Functions](#functions)
 
 ### Introduction
 Oxide is built with simplicity, power and efficiency in mind.
@@ -17,12 +20,10 @@ We've tried to create a language that incorporates the best functionality combin
 
 The Oxide interpreter and compiler is written in Rust.
 
-##### Syntax
+### Syntax
 **Oxide does not use semicolons at the end of a line of code**
 
-### Data Types
-
-##### Primitives
+### Primitives
 Oxide has only 3 basic primitive types: Numbers, Booleans and Strings
 
 Numbers: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
@@ -38,14 +39,14 @@ true
 false
 ```
 
-Strings:
+### Collections
+Strings
 ```
 ""          // The empty string
 "a"         // A string of length 1
 "Hello"     // A string of length 5
 ```
 
-##### Collections
 Vectors
 ```
 [1 2 3 4 5]
@@ -56,13 +57,13 @@ Lists
 (1 2 3)
 ```
 
-Structures
+### Structures
 ```
 {}
 ```
 
 ### Symbol Binding
-- Oxide is statically-typed. Once you bind a symbol, you cannot assign a value of a different type to that symbol.
+**Static Typing** Oxide is statically-typed. Once you bind a symbol, you cannot assign a value of a different type to that symbol.
 
 ##### Mutable Variables
 ```
@@ -75,7 +76,7 @@ val y = 3
 ```
 
 ### Indexing
-We've made a rather controversial choice to start collection indexes at 1 instead of 0.
+We've made the rather controversial choice to start collection indexes at 1 instead of 0.
 ```
 val x = (1 2 3 4 5 6 7)
 
@@ -104,6 +105,7 @@ x[-1:1]   // "hello"
 ```
 
 ### Expressions
+Expressions are built in numerical functions
 ```
 + - * / ^ %
 ```
@@ -115,6 +117,7 @@ Evaluating expressions
 ```
 
 ##### Comparators
+Comparators are simply functions that compare values and return a Boolean value.
 ```
 == != > >= < <=
 ```
@@ -122,9 +125,21 @@ Evaluating expressions
 ==(1 1)   // true
 >=(1 3)   // false
 ```
+
+Using prefix notation, we can replace this...
+```
+((x > 5) && (x < 10))
+```
+
+with this less verbose and easier to visualize alternative...
+```
+>(5 x 10)
+```
+
+Using prefix notation also allows many operations to be simplified. For example, checking if a list is sorted...
 ```
 <=(1 2 2 3 4)   // true
-<=(1 2 3 4 3)   // false
+>(1 2 3 4 3)    // false
 ```
 
 ##### Boolean
@@ -136,7 +151,7 @@ Evaluating expressions
 ||(0 0 1 0)   // true
 ```
 
-##### Bitwise
+##### Bitwise Operations
 ```
 ~ & | ~& ~|
 ```
