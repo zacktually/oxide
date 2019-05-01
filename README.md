@@ -4,15 +4,16 @@ An interpreter and compiler for the oxide programming language.
 ### Table of Contents
 1. [Introduction](#introduction)
 2. [Syntax](#syntax)
-3. [Primitives](#primitives)
-4. [Collections](#collections)
-5. [Structures](#structures)
-6. [Symbol Binding](#symbol-binding)
-7. [Indexing](#indexing)
-8. [Expressions](#expressions)
-9. [Conditionals](#conditionals)
-10. [Loops](#loops)
-11. [Functions](#functions)
+3. [Comments](#comments)
+4. [Primitives](#primitives)
+5. [Collections](#collections)
+6. [Structures](#structures)
+7. [Symbol Binding](#symbol-binding)
+8. [Indexing](#indexing)
+9. [Expressions](#expressions)
+10. [Conditionals](#conditionals)
+11. [Loops](#loops)
+12. [Functions](#functions)
 
 ### Introduction
 Oxide is built with simplicity, power and efficiency in mind.
