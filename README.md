@@ -24,7 +24,7 @@ The Oxide interpreter and compiler is written in Rust.
 **Oxide does not use semicolons at the end of a line of code**
 
 ### Primitives
-Oxide has only 3 basic primitive types: Numbers, Booleans and Strings
+Oxide has only 3 basic primitive types: Numbers, Booleans and Characters
 
 Numbers: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
 ```
@@ -39,27 +39,36 @@ true
 false
 ```
 
+Characters:
+```
+'a'
+'0'
+' '
+```
+
 ### Collections
-Strings
+Strings: are a collection of characters
 ```
 ""          // The empty string
 "a"         // A string of length 1
 "Hello"     // A string of length 5
 ```
 
-Vectors
+Vectors: are a collection of same-type elements
 ```
-[1 2 3 4 5]
+[]            // An empty vector
+[1 2 3 4 5]   // A vector of length 5
 ```
 
-Lists
+Tuples: are a collection of different-type elements
 ```
-(1 2 3)
+()            // An empty tuple
+(1 2 3)       // A tuple of length 3
 ```
 
 ### Structures
 ```
-{}
+{a:1 b:"123"}
 ```
 
 ### Symbol Binding
