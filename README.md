@@ -24,9 +24,9 @@ The Oxide interpreter and compiler is written in Rust.
 **Oxide does not use semicolons at the end of a line of code**
 
 ### Comments
-'''
+```
 # This is a comment
-'''
+```
 
 ### Primitives
 Oxide has only 3 basic primitive types: Numbers, Booleans and Characters
