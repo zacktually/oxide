@@ -228,43 +228,41 @@ var x = ('a' 'b' 'c' 'd')
 </if>
 ```
 
-##### Loops
-```
-<loop>
-</loop>
-```
-
-```
-<while >=(x 0)>
-</while>
-```
-
-```
-<for item in items>
-</for>
-
-<for i in (1:10)>
-</for>
-```
-
 ##### Functions
 ```
 <fn x:Int y:String>
+
 </fn>
 ```
 
 ##### Sample Program
 ```
-<struct Car>
-    var color: STR
-    val miles: NUM
-</struct>
+struct Product = { cost:NUM }
+struct Vehicle = { miles:NUM color:STR }
+struct Car:(Vehicle Product Drivable) = {}
 
-<fn Car::new miles:3>
-    Car { self.color:"red" self.miles:miles }
- </fn>
+# CAR METHODS
+<fn Car::new:Car color:STR cost:NUM>
+    { miles:0 color:color cost:cost }
+</fn>
 
+# DRIVABLE TRAIT
+<fn Drivable::drive miles:NUM>
+    +=(self.miles miles)
+</fn>
+
+<fn Drivable::printStatus>
+    <match self.miles>
+        0 => @print("NEW")
+        else => @print("USED")
+    </match>
+</fn>
+
+# MAIN FUNCTION
 <fn main>
-  val x = 
+   var my_car = Car::new()
+   my_car.printStatus()         # NEW
+   my_car.drive(10)
+   my_car.printStatus()         # USED
 </fn>
 ```
