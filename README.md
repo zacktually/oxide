@@ -22,8 +22,8 @@ We've tried to create a language that incorporates the best functionality combin
 
 The Oxide interpreter and compiler is written in Rust.
 
-### Syntax   
-**Oxide does not use semicolons at the end of a line of code**
+### Syntax
+*Oxide does not use semicolons at the end of a line of code*
 
 ### Comments
 ```
@@ -31,42 +31,43 @@ The Oxide interpreter and compiler is written in Rust.
 ```
 
 ### Primitives
-Oxide has only 3 basic primitive types: Numbers, Characters and Booleans
+Oxide has only 3 basic primitive types: *Numbers*, *Characters* and *Booleans*
 
-Numbers: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
+**Numbers**: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
 ```
 5
 -72
 5.3
 ```
 
-Characters: Characters are represented with single quotes and are formatted in UTF-8. Putting more than one character between single quotes will result in an error.
+**Characters**: Characters are represented with single quotes and are formatted in UTF-8. Putting more than one character between single quotes will result in an error.
 ```
+' '
 'a'
 '0'
-' '
 ```
 
-Booleans:
+**Booleans**:
 ```
 true
 false
 ```
 
 ### Collections
-Vectors: are a collection of same-type elements
+
+**Vectors**: are a collection of *same-type* elements
 ```
 []                  # An empty vector
 [1 2 3 4 5]         # A vector of length 5
 ```
 
-Tuples: are a collection of any-type elements
+**Tuples**: are a collection of *any-type* elements
 ```
 ()                  # An empty tuple
 (1 'c' true)        # A tuple of length 3
 ```
 
-Strings: are a collection of characters
+**Strings**: are a collection of characters
 ```
 ""                  # An empty string
 "a"                 # A string of length 1
@@ -105,9 +106,7 @@ x = 3                         # Error: Cannot re-assign to immutable value.
 ```
 
 ### Indexing
-Indexing works exactly the same over any type of Collection.
-**We've made the rather controversial choice to start collection indexes at 1 instead of 0.**
-For more information on why we made this choice, please read this article.
+We've made the rather controversial choice to start collection indexes at 1 instead of 0. For more information on why we made this choice, please read *this article*.
 ```
 val x = [1 2 3 4 5 6 7]
 
@@ -144,12 +143,12 @@ Expressions are built-in functions
 ^     - Exponentiation
 %     - Modulo
 ```
-Evaluating expressions: Oxide uses a unique form of prefix notation when calling functions.
-This allows us to simplify this:
+*Evaluating expressions*: Oxide uses a unique form of prefix notation when calling functions.
+This allows us to simplify this...
 ```
 1 + 2 + 3 + 4
 ```
-into this:
+...into this.
 ```
 +(1 2 3 4)                   # 10
 ```
@@ -178,7 +177,7 @@ Using prefix notation, we can replace this...
 ```
 ((x > 5) && (x < 10))
 ```
-...with this less verbose and easier to visualize alternative...
+...with this less verbose and easier to visualize alternative.
 ```
 >(5 x 10)
 ```
@@ -217,7 +216,7 @@ var x = ('a' 'b' 'c' 'd')
 ~!(1)
 ```
 
-##### Lambda Expression
+##### Lambda Expressions
 ```
 var add1 = fn(y) => +(y 1)
 add1(2)                          # 3
@@ -237,8 +236,8 @@ add3(4)                                     # 7
 ##### Conditionals
 ```
 <match ==(x 3)>
-  true =>
-  false =>
+  true => @print("true")
+  false => @print("false")
 </match>
 ```
 
