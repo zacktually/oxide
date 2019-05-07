@@ -217,22 +217,46 @@ var x = ('a' 'b' 'c' 'd')
 ~!(1)
 ```
 
+##### Lambda Expression
+```
+var add1 = fn(y) => +(y 1)
+add1(2)                          # 3
+```
+
+##### Function Currying with Lambdas
+```
+var add = fn(a) => fn(b) => +(a b)
+add(3)(4)                                   # 7
+
+var add3 = add(3)                           # fn(3)(b)
+add3(4)                                     # 7
+```
+
 ### Control Statements
 
 ##### Conditionals
 ```
 <match ==(x 3)>
   true =>
+  false =>
 </match>
-<if ==(x 3)>
-</if>
 ```
 
 ##### Functions
 ```
-<fn x:Int y:String>
-
+<fn run x:NUM y:STR>
+    # CODE GOES HERE
 </fn>
+```
+**Default Parameters** allow us to implement function overloading with only one function definition
+```
+<fn run x:0 y:"">
+    # CODE GOES HERE
+</fn>
+
+run("test")                  # x is 0 and y is "test"
+run(3)                       # x is 3 and y is ""
+run(1 "test")                # x is 1 and y is "test"
 ```
 
 ##### Sample Program
