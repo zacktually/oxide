@@ -14,6 +14,7 @@ An interpreter and compiler for the oxide programming language.
 10. [Conditionals](#conditionals)
 11. [Loops](#loops)
 12. [Functions](#functions)
+13. [Sample Program](#sample-program)
 
 ### Introduction
 Oxide is built with simplicity, power and efficiency in mind.
@@ -30,7 +31,7 @@ The Oxide interpreter and compiler is written in Rust.
 ```
 
 ### Primitives
-Oxide has only 3 basic primitive types: Numbers, Booleans and Characters
+Oxide has only 3 basic primitive types: Numbers, Characters and Booleans
 
 Numbers: Oxide uses a single type to represent a number. The interpreter/compiler will determine the underlying representation (int, float, double...etc.) based on the context and will perform any casts automatically.
 ```
@@ -39,20 +40,32 @@ Numbers: Oxide uses a single type to represent a number. The interpreter/compile
 5.3
 ```
 
-Booleans:
-```
-true
-false
-```
-
-Characters:
+Characters: Characters are represented with single quotes and are formatted in UTF-8. Putting more than one character between single quotes will result in an error.
 ```
 'a'
 '0'
 ' '
 ```
 
+Booleans:
+```
+true
+false
+```
+
 ### Collections
+Vectors: are a collection of same-type elements
+```
+[]                  # An empty vector
+[1 2 3 4 5]         # A vector of length 5
+```
+
+Tuples: are a collection of any-type elements
+```
+()                  # An empty tuple
+(1 'c' true)        # A tuple of length 3
+```
+
 Strings: are a collection of characters
 ```
 ""                  # An empty string
@@ -60,40 +73,43 @@ Strings: are a collection of characters
 "Hello"             # A string of length 5
 ```
 
-Vectors: are a collection of same-type elements
-```
-[]                  # An empty vector
-[1 2 3 4 5]         # A vector of length 5
-```
-
-Tuples: are a collection of different-type elements
-```
-()                  # An empty tuple
-(1 'c' true)        # A tuple of length 3
-```
-
 ### Structures
 ```
-{a:1 b:"123"}
+{ a:1 b:"123" }
 ```
 
 ### Symbol Binding
-**Static Typing** Oxide is statically-typed. Once you bind a symbol, you cannot assign a value of a different type to that symbol.
 
 ##### Mutable Variables
 ```
 var x = 5
+
+x = 3
+@print("/x")                  # 3
+```
+
+**Static Typing** Oxide is statically-typed. Once you bind a symbol, you cannot assign a value of a different type to that symbol.
+```
+var x = 5
+
+x = 'c'                       # Error: Cannot re-assign to variable of a differnt type.
+@print("/x")                  # 5
 ```
 
 ##### Immutable Values
 ```
-val y = 3
+val y = 5
+
+x = 3                         # Error: Cannot re-assign to immutable value.
+@print("/x")                  # 5
 ```
 
 ### Indexing
-We've made the rather controversial choice to start collection indexes at 1 instead of 0.
+Indexing works exactly the same over any type of Collection.
+**We've made the rather controversial choice to start collection indexes at 1 instead of 0.**
+For more information on why we made this choice, please read this article.
 ```
-val x = (1 2 3 4 5 6 7)
+val x = [1 2 3 4 5 6 7]
 
 x[1]              # 1
 x[3]              # 3
@@ -119,7 +135,7 @@ x[-1:1]           # "hello"
 ```
 
 ### Expressions
-Expressions are built in numerical functions
+Expressions are built-in functions
 ```
 +     - Addition
 -     - Subtraction
@@ -128,13 +144,19 @@ Expressions are built in numerical functions
 ^     - Exponentiation
 %     - Modulo
 ```
-Evaluating expressions
+Evaluating expressions: Oxide uses a unique form of prefix notation when calling functions.
+This allows us to simplify this:
+```
+1 + 2 + 3 + 4
+```
+into this:
 ```
 +(1 2 3 4)                   # 10
--(10 3)                      # 7
-
+```
+When dealing with data in programming, this is incredibly useful. It allows us to use defined collections as parameters to functions.
+```
 val x = [10 10 10 10]
-+_x                          # 40
++{x}                         # 40
 ```
 
 ##### Comparators
@@ -156,19 +178,18 @@ Using prefix notation, we can replace this...
 ```
 ((x > 5) && (x < 10))
 ```
-
-with this less verbose and easier to visualize alternative...
+...with this less verbose and easier to visualize alternative...
 ```
 >(5 x 10)
 ```
 
 Using prefix notation also allows many operations to be simplified. For example, checking if a list is sorted...
 ```
-<=(1 2 2 3 4)                  # true
->(1 2 3 4 3)                   # false
+<=(1 2 2 3 4)                   # true
+>(1 2 3 4 3)                    # false
 
 var x = ('a' 'b' 'c' 'd')
-<=_x                           # true
+<={x}                           # true
 ```
 
 ##### Boolean Operations
@@ -229,5 +250,21 @@ var x = ('a' 'b' 'c' 'd')
 ##### Functions
 ```
 <fn x:Int y:String>
+</fn>
+```
+
+##### Sample Program
+```
+<struct Car>
+    var color: STR
+    val miles: NUM
+</struct>
+
+<fn Car::new miles:3>
+    Car { self.color:"red" self.miles:miles }
+ </fn>
+
+<fn main>
+  val x = 
 </fn>
 ```
