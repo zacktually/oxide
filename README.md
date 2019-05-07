@@ -21,7 +21,7 @@ We've tried to create a language that incorporates the best functionality combin
 
 The Oxide interpreter and compiler is written in Rust.
 
-### Syntax
+### Syntax   
 **Oxide does not use semicolons at the end of a line of code**
 
 ### Comments
@@ -55,21 +55,21 @@ Characters:
 ### Collections
 Strings: are a collection of characters
 ```
-""          // The empty string
-"a"         // A string of length 1
-"Hello"     // A string of length 5
+""                  # An empty string
+"a"                 # A string of length 1
+"Hello"             # A string of length 5
 ```
 
 Vectors: are a collection of same-type elements
 ```
-[]            // An empty vector
-[1 2 3 4 5]   // A vector of length 5
+[]                  # An empty vector
+[1 2 3 4 5]         # A vector of length 5
 ```
 
 Tuples: are a collection of different-type elements
 ```
-()            // An empty tuple
-(1 2 3)       // A tuple of length 3
+()                  # An empty tuple
+(1 'c' true)        # A tuple of length 3
 ```
 
 ### Structures
@@ -95,50 +95,61 @@ We've made the rather controversial choice to start collection indexes at 1 inst
 ```
 val x = (1 2 3 4 5 6 7)
 
-x[1]   // 1
-x[3]   // 3
+x[1]              # 1
+x[3]              # 3
 ```
 Negative indexes start from the end of the collections.
 ```
-x[-1]   // 7
+x[-1]             # 7
 ```
 You can get a subset of a collection by using a range.
 ```
-x[3:5]   // (3 4 5)
+x[3..5]           # (3 4 5)
 ```
-
 ```
-x[-1:1]   // (7 6 5 4 3 2 1)
+x[-1..1]          # (7 6 5 4 3 2 1)
 ```
 The same can be done with strings or other collections
 ```
 val s = "olleh"
 
-x[1]      // "o"
-x[-1]     // "h"
-x[-1:1]   // "hello"
+x[1]              # "o"
+x[-1]             # "h"
+x[-1:1]           # "hello"
 ```
 
 ### Expressions
 Expressions are built in numerical functions
 ```
-+ - * / ^ %
++     - Addition
+-     - Subtraction
+*     - Multiplication
+/     - Division
+^     - Exponentiation
+%     - Modulo
 ```
 Evaluating expressions
 ```
-+(1 2 3 4)   // 10
--(10 3)      // 7
++(1 2 3 4)                   # 10
+-(10 3)                      # 7
 
+val x = [10 10 10 10]
++_x                          # 40
 ```
 
 ##### Comparators
 Comparators are simply functions that compare values and return a Boolean value.
 ```
-== != > >= < <=
+=      - Is Equal
+!=     - Is Not Equal
+>      - Is Greater Than
+>=     - Is Greater Than or Equal
+<      - Is Less Than
+<=     - Is Less Than or Equal
 ```
 ```
-==(1 1)   // true
->=(1 3)   // false
+=(1 1)          # true
+>=(1 3)         # false
 ```
 
 Using prefix notation, we can replace this...
@@ -153,31 +164,45 @@ with this less verbose and easier to visualize alternative...
 
 Using prefix notation also allows many operations to be simplified. For example, checking if a list is sorted...
 ```
-<=(1 2 2 3 4)   // true
->(1 2 3 4 3)    // false
+<=(1 2 2 3 4)                  # true
+>(1 2 3 4 3)                   # false
+
+var x = ('a' 'b' 'c' 'd')
+<=_x                           # true
 ```
 
-##### Boolean
+##### Boolean Operations
 ```
-! && ||
+!     - Logical NOT
+&     - Logical AND
+|     - Logical OR
 ```
 ```
-&&(1 1 1 1)   // true
-||(0 0 1 0)   // true
+!(true)                     # false
+!(true false)               # (false true)
+&(true true)                # true
+&(1 1 0 1)                  # false
+|(0 0 1 0)                  # true
+&(=(1 1) =('c' 'c'))        # true
 ```
 
 ##### Bitwise Operations
 ```
-~ & | ~& ~|
+~! - Bitwise NOT
+~& - Bitwise AND
+~| - Bitwise OR
 ```
 ```
-~(1)   //
+~!(1)
 ```
 
 ### Control Statements
 
 ##### Conditionals
 ```
+<match ==(x 3)>
+  true =>
+</match>
 <if ==(x 3)>
 </if>
 ```
@@ -203,6 +228,6 @@ Using prefix notation also allows many operations to be simplified. For example,
 
 ##### Functions
 ```
-<func x:Int y:String>
-</func>
+<fn x:Int y:String>
+</fn>
 ```
