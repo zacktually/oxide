@@ -216,6 +216,52 @@ var x = ('a' 'b' 'c' 'd')
 ~!(1)
 ```
 
+### Control Statements
+
+##### Conditionals
+```
+<match ==(x 3)>
+  true => @print("true")
+  false => @print("false")
+</match>
+```
+
+```
+val c = 'd'
+
+var c = <match c>
+    'a' => 1
+    'b' => 2
+    'c' => 3
+    else => 0
+</match>
+
+@print("/x")                     # 0
+```
+
+##### Functions
+```
+<fn run x:NUM y:STR>
+    # CODE GOES HERE
+</fn>
+```
+
+**Calling Functions**
+```
+run(5, "hello")
+```
+
+**Default Parameters** allow us to implement function overloading with only one function definition
+```
+<fn run x:0 y:"">
+    # CODE GOES HERE
+</fn>
+
+run("test")                  # x is 0 and y is "test"
+run(3)                       # x is 3 and y is ""
+run(1 "test")                # x is 1 and y is "test"
+```
+
 ##### Lambda Expressions
 ```
 var add1 = fn(y) => +(y 1)
@@ -231,34 +277,11 @@ var add3 = add(3)                           # fn(3)(b)
 add3(4)                                     # 7
 ```
 
-### Control Statements
+### Implementation on Structs
 
-##### Conditionals
-```
-<match ==(x 3)>
-  true => @print("true")
-  false => @print("false")
-</match>
-```
+##### Traits
 
-##### Functions
-```
-<fn run x:NUM y:STR>
-    # CODE GOES HERE
-</fn>
-```
-**Default Parameters** allow us to implement function overloading with only one function definition
-```
-<fn run x:0 y:"">
-    # CODE GOES HERE
-</fn>
-
-run("test")                  # x is 0 and y is "test"
-run(3)                       # x is 3 and y is ""
-run(1 "test")                # x is 1 and y is "test"
-```
-
-##### Sample Program
+### Sample Program
 ```
 struct Product = { cost:NUM }
 struct Vehicle = { miles:NUM color:STR }
